@@ -32,7 +32,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "vehicule.findByVersion", query = "SELECT v FROM vehicule v WHERE v.version = :version")
     , @NamedQuery(name = "vehicule.findByCoefficient", query = "SELECT v FROM vehicule v WHERE v.coefficient = :coefficient")
     , @NamedQuery(name = "vehicule.findAllMarque", query = "SELECT DISTINCT v.marque FROM vehicule v")
-    , @NamedQuery(name = "vehicule.findAllModele", query = "SELECT DISTINCT v.modele FROM vehicule v WHERE v.marque = :marque")})
+    , @NamedQuery(name = "vehicule.findAllModele", query = "SELECT DISTINCT v.modele FROM vehicule v WHERE v.marque = :marque")
+    , @NamedQuery(name = "vehicule.findAllVersion", query = "SELECT DISTINCT v.version FROM vehicule v WHERE v.marque = :marque AND v.modele = :modele")})
 public class VehiculeEntite implements Serializable {
 
     private static final long serialVersionUID = 1L;

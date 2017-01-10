@@ -6,7 +6,6 @@
 package webSockets;
 
 import dao.VehiculeDAO;
-import entite.VehiculeEntite;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -57,7 +56,7 @@ public class FormulaireVehicule {
             case "versions":
                 List<String> versions = VehiculeDAO.listerVersions(valeur,valeur2);
                 for (String version : versions) {
-                    liste += "{\"donnees\":\"" + donnees + "\",\"version\":\"" + version + "\"},\n";
+                    liste += "{\"donnees\":\"" + donnees + "\",\"version\":\"" + (valeur + " " + valeur2 + " " + version).trim() + "\"},\n";
                 }
                 break;
             default:
