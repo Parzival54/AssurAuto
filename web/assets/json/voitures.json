@@ -1,0 +1,32 @@
+[
+ 
+    { "marque": "Renault",
+      "modele": "Twingo",
+      "version": "tourisme"
+    },
+    { "marque": "Renault",
+      "modele": "Twingo",
+      "version": "sport"
+    },
+    { "marque": "Renault",
+      "modele": "bleu",
+      "version": "tourisme"
+    },
+    { "marque": "Renault",
+      "modele": "bleu",
+      "version": "break"
+    },
+    { "marque": "Citroen",
+      "modele": "jaune",
+      "version": "sport"
+    },
+    { "marque": "Citroen",
+      "modele": "bleu",
+      "version": "break"
+    },
+    { "marque": "Peugeot",
+      "modele": "bleu",
+      "version": "sport"
+    }
+
+]

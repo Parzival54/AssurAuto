@@ -1,0 +1,90 @@
+#voiture_accueil{
+    width: 40%;
+    height: auto;
+}
+
+#voiture_min{
+    position: relative;
+    width: 20%;
+    height: auto;
+    left : -70%;
+}
+
+#devis{
+    padding-top: 60px;
+    background-color: #428bca;
+}
+
+#formVehicule{
+    border-right: 1px black solid;
+    border-left: 1px black solid;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#validerVehicule, #validerProfil, #validerUtilisation{
+    width: 100%;
+}
+
+.form-group{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.tab-content.panel
+{
+    border-top: none;
+    margin: 0px;
+}
+
+#formulaire{
+    padding-bottom: 90px;
+    padding-top: 50px;
+}
+
+.disabled {
+   pointer-events: none;
+   cursor: default;
+}
+
+#recap{
+    width: 65%;
+    margin-left: 10%;
+    min-height: 200px;
+    border: 2px black solid;
+}
+
+#recap tr:first-of-type{
+    height: 70%;
+}
+
+#recap button{
+    background-color: #285e8e;
+    float:right;
+    margin-bottom: 10px;
+        
+}
+
+#souscrire{
+    line-height: 70px;
+    font-size: 40px;
+    color:white;
+    font-weight:bold;
+}
+
+#enregistrer{
+    font-size: 16px;
+    color:white;
+}
+
+#findevisperso{
+    line-height: 70px;
+    position: relative;
+    top: -10%;
+}
+
+#montarif{
+    float: left;
+    font-size: 25px;
+    font-weight: bold;
+}
