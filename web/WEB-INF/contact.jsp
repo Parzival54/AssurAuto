@@ -32,34 +32,22 @@
 
                             <!-- Select Basic -->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="marque">Marque</label>
+                                <label class="col-md-4 control-label" for="demande">Objet de la demande :</label>
                                 <div class="col-md-4">
-                                    <select id="marque" name="marque" class="form-control">
-                                        <option value="0">--------------------------------------------</option>
-                                        <option value="Citroen">Citroen</option>
-                                        <option value="Peugeot">Peugeot</option>
-                                        <option value="Renault">Renault</option>
+                                    <select id="marque" name="demande" class="form-control">
+                                        <option value="Devis">Demande de devis</option>
+                                        <option value="Reporter">Reporter un bug</option>
+                                        <option value="Autre">Autre demande</option>
                                     </select>
                                 </div>
                             </div>
 
                             <!-- Select Basic -->
                             <div class="form-group">
-                                <label class="col-lg-4 control-label" for="modele">Modèle</label>
+                                <label class="col-lg-4 control-label" for="texte">Votre texte :</label>
                                 <div class="col-lg-4">
-                                    <select id="modele" name="modele" class="form-control" disabled>
-                                        <option value="0"></option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- Select Basic -->
-                            <div class="form-group">
-                                <label class="col-lg-4 control-label" for="version">Version</label>
-                                <div class="col-lg-4">
-                                    <select id="version" name="version" class="form-control" disabled>
-                                        <option value="0"></option>
-                                    </select>
+                                    <textarea id="commentaire" name="commentaire" style="width: 100%; height: 100px;"></textarea>
+                                    <span id="nbCar" style="float: left;">Nombre de caractères :</span>
                                 </div>
                             </div>
 
@@ -67,7 +55,7 @@
                             <div class="form-group">
                                 <label class="col-lg-4 control-label" for="singlebutton"></label>
                                 <div class="col-lg-4">
-                                    <button id="validerVehicule" name="singlebutton" class="btn btn-primary">Valider</button>
+                                    <button id="validerVehicule" name="singlebutton" class="btn btn-theme">Valider</button>
                                 </div>
                             </div>
 
@@ -124,7 +112,7 @@
         <script src="assets/js/jquery.isotope.min.js"></script>
         <script src="assets/js/custom.js"></script>
         <script src="assets/js/jquery.js" type="text/javascript"></script>
-        <script src="assets/js/formulaireVehicule.js" type="text/javascript"></script>
+        <script src="assets/js/contact.js" type="text/javascript"></script>
 
     </body>
 </html>

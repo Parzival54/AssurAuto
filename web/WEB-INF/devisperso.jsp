@@ -93,9 +93,6 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <h4>A propos</h4>
-                        <p>Marque : ${vehiculeBean.marque}, Modèle: ${vehiculeBean.modele}, Version: ${vehiculeBean.version}</p>
-                        <p>Nom : ${profilBean.nom}, Prénom ${profilBean.prenom}, Email: ${profilBean.mail}, Jeune: ${profilBean.jeune}</p>
-                        <p>Kms : ${utilisationBean.kms}, Fréquence ${utilisationBean.frequence}, Travail ${utilisationBean.travail}</p>
                         <div class="hline-w"></div>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
                     </div>
