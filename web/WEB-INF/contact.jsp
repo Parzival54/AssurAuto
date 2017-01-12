@@ -4,6 +4,7 @@
     Author     : merguez
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib tagdir="/WEB-INF/tags" prefix="tag"%>
 <!DOCTYPE html>
@@ -24,38 +25,48 @@
         <div id="headerwrap">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form id="devis" class="form-horizontal">
+                    <form id="devis" class="form-horizontal" action="Contact" method="POST">
+                        <input type="hidden" name="cmd" value="validationContact"/>
                         <fieldset>
 
-                            <!-- Form Name -->
                             <legend>Fiche de contact</legend>
 
-                            <!-- Select Basic -->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="demande">Objet de la demande :</label>
-                                <div class="col-md-4">
-                                    <select id="marque" name="demande" class="form-control">
-                                        <option value="Devis">Demande de devis</option>
-                                        <option value="Reporter">Reporter un bug</option>
-                                        <option value="Autre">Autre demande</option>
+                                <label class="col-md-2 control-label" for="demande">Objet de la demande :</label>
+                                <div class="col-md-8">
+                                    <select class="input-lg"  style="width: 100%" id="marque" name="demande" class="form-control">
+                                        <option value="1">Demande de devis</option>
+                                        <option value="2">Reporter un bug</option>
+                                        <option value="3">Autre demande</option>
                                     </select>
                                 </div>
                             </div>
 
-                            <!-- Select Basic -->
                             <div class="form-group">
-                                <label class="col-lg-4 control-label" for="texte">Votre texte :</label>
-                                <div class="col-lg-4">
-                                    <textarea id="commentaire" name="commentaire" style="width: 100%; height: 100px;"></textarea>
-                                    <span id="nbCar" style="float: left;">Nombre de caractères :</span>
+                                <label class="col-lg-2 control-label" for="texte">Votre email :</label>
+                                <div class="col-lg-8">
+                                    <input class="input-lg" style="width: 100%" type="email" id="email" name="email"/>
                                 </div>
                             </div>
 
-                            <!-- Button -->
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="texte">Votre texte :</label>
+                                <div class="col-lg-8">
+                                    <textarea class="input-lg" id="commentaire" name="commentaire" style="width: 100%; height: 200px;">${contact.demande}</textarea>
+                                    <span id="nbCar" style="float: left;">Nombre de caractères : 0/1000</span>
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <label class="col-lg-4 control-label" for="singlebutton"></label>
                                 <div class="col-lg-4">
-                                    <button id="validerVehicule" name="singlebutton" class="btn btn-theme">Valider</button>
+                                    <c:if test="${!empty contact}" var="contact">
+                                        <span style="color: green">Demande envoyée</span>
+                                        <button id="validerVehicule" name="singlebutton" class="btn btn-theme" disabled="">Valider</button>
+                                    </c:if>
+                                    <c:if test="${empty contact}" var="contact">
+                                        <button id="validerVehicule" name="singlebutton" class="btn btn-theme">Valider</button>
+                                    </c:if>
                                 </div>
                             </div>
 

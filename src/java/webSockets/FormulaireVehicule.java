@@ -56,7 +56,7 @@ public class FormulaireVehicule {
             case "versions":
                 List<String> versions = VehiculeDAO.listerVersions(valeur,valeur2);
                 for (String version : versions) {
-                    liste += "{\"donnees\":\"" + donnees + "\",\"version\":\"" + (valeur + " " + valeur2 + " " + version).trim() + "\"},\n";
+                    liste += "{\"donnees\":\"" + donnees + "\",\"version\":\"" + version + "\"},\n";
                 }
                 break;
             default:
