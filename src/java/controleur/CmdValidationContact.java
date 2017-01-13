@@ -30,7 +30,9 @@ public class CmdValidationContact implements ICommand{
         
         HttpSession session = request.getSession();
         if (session.getAttribute("connexion") == ("true")){
-            session.getAttribute("login");
+            contact.setLogin((String) session.getAttribute("login"));
+        } else {
+            contact.setLogin("aucun");
         }
         request.setAttribute("contact", contact);
         create(contact);

@@ -26,7 +26,15 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <form id="devis" class="form-horizontal" action="Contact" method="POST">
-                        <input type="hidden" name="cmd" value="validationContact"/>
+                        <c:choose>
+                            <c:when test="${empty contact}">
+                                <input type="hidden" name="cmd" value="validationContact"/>
+                            </c:when>
+                            <c:otherwise>
+                                <input type="hidden" name="cmd" value="accueil"/>
+                            </c:otherwise>
+                        </c:choose>
+
                         <fieldset>
 
                             <legend>Fiche de contact</legend>
@@ -45,7 +53,7 @@
                             <div class="form-group">
                                 <label class="col-lg-2 control-label" for="texte">Votre email :</label>
                                 <div class="col-lg-8">
-                                    <input class="input-lg" style="width: 100%" type="email" id="email" name="email"/>
+                                    <input class="input-lg" style="width: 100%" type="email" id="email" value="${contact.email}" name="email"/>
                                 </div>
                             </div>
 
@@ -60,13 +68,15 @@
                             <div class="form-group">
                                 <label class="col-lg-4 control-label" for="singlebutton"></label>
                                 <div class="col-lg-4">
-                                    <c:if test="${!empty contact}" var="contact">
-                                        <span style="color: green">Demande envoyée</span>
-                                        <button id="validerVehicule" name="singlebutton" class="btn btn-theme" disabled="">Valider</button>
-                                    </c:if>
-                                    <c:if test="${empty contact}" var="contact">
-                                        <button id="validerVehicule" name="singlebutton" class="btn btn-theme">Valider</button>
-                                    </c:if>
+                                    <c:choose>
+                                        <c:when test="${!empty contact}">
+                                            <span style="color: green">Demande envoyée</span>
+                                            <button id="validerVehicule" name="singlebutton" class="btn btn-theme">Retour accueil</button>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <button id="validerVehicule" name="singlebutton" class="btn btn-theme">Valider</button>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
                             </div>
 

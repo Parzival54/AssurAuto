@@ -51,6 +51,7 @@ public class Contact extends HttpServlet {
     
     @Override
     public void init(){
+    commands.put("accueil", new CmdAccueil());
     commands.put("contact", new CmdContact());
     commands.put("validationContact", new CmdValidationContact());
     }

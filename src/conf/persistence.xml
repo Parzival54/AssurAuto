@@ -4,6 +4,7 @@
     <jta-data-source>java:app//assurauto</jta-data-source>
     <class>entite.UtilisateurEntite</class>
     <class>entite.VehiculeEntite</class>
+    <class>entite.ContactEntite</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties/>
   </persistence-unit>

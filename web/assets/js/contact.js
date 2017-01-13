@@ -9,3 +9,17 @@ $('#commentaire').keyup(function () {
    }
    
 });
+
+function desactiver() {
+    if ($('input[name=cmd]').val() === 'accueil'){
+        $('#email').prop('disabled',false);
+        $('#commentaire').prop('disabled',false);
+    } else {
+        $('#email').prop('disabled',true);
+        $('#commentaire').prop('disabled',true);
+    }
+    alert($('input[name=cmd]').val());
+}
+
+desactiver();
+
