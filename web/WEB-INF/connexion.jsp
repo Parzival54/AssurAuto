@@ -21,14 +21,14 @@
     <body>
 
         <!-- Fixed navbar -->
-        <tag:banniere active="0" connecte="${connexion}"/>
+        <tag:banniere active="0" connecte="${connexion.connexion}"/>
 
-        <div id="headerwrap">
+        <div id="headerwrap" style="background-color: #428bca">
             <div id="formulaire" class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="col-lg-6">
-                        <form id="devis" class="form-horizontal" action="Accueil" method="POST">
-                            <input type="hidden" name="cmd" value="essaiCreationCompte"/>
+                        <form id="creationClient" class="form-horizontal" action="Accueil" method="POST">
+                            <input type="hidden" name="cmd" value="creationClient"/>
                             <fieldset>
 
                                 <legend>Créer un compte</legend>
@@ -36,14 +36,14 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="identifiant">Identifiant</label>
                                     <div class="col-md-4">
-                                        <input type="text" id="prenom" name="prenom" class="form-control">
+                                        <input type="text" id="pseudo" name="pseudo" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="mail">E-mail</label>
                                     <div class="col-md-4">
-                                        <input type="text" id="mail" name="mail" class="form-control">
+                                        <input type="email" id="mail" name="mail" class="form-control">
                                     </div>
                                 </div>
 
@@ -57,7 +57,7 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="password2">Confirmer mot de passe</label>
                                     <div class="col-md-4">
-                                        <input type="password2" id="password" name="password2" class="form-control">
+                                        <input type="password" id="password2" name="password2" class="form-control">
                                     </div>
                                 </div>
 
@@ -72,7 +72,7 @@
                         </form>
                     </div>
                     <div class="col-lg-6">
-                        <form id="devis" class="form-horizontal" action="Accueil" method="POST">
+                        <form id="connexionClient" class="form-horizontal" action="Accueil" method="POST">
                             <input type="hidden" name="cmd" value="essaiConnexion"/>
                             <fieldset>
 
@@ -81,17 +81,18 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="identifiant">Identifiant</label>
                                     <div class="col-md-4">
-                                        <input type="text" id="identifiant" name="identifiant" class="form-control">
+                                        <input type="text" id="identifiant" name="identifiant" class="form-control" value="${identifiant}">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="password">Mot de passe</label>
                                     <div class="col-md-4">
-                                        <input type="password" id="password" name="password" class="form-control">
+                                        <input type="password" id="password" name="password" class="form-control" value="${password}">
                                     </div>
                                 </div>
 
+                                    <span style="color: red;">${erreur}</span>
                                 <div class="form-group">
                                     <label class="col-lg-4 control-label" for="singlebutton"></label>
                                     <div class="col-lg-4">
@@ -109,37 +110,7 @@
         <!-- *****************************************************************************************************************
              FOOTER
              ***************************************************************************************************************** -->
-        <div id="footerwrap">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <h4>A propos</h4>
-                        <div class="hline-w"></div>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                    </div>
-                    <div class="col-lg-4">
-                        <h4>Réseaux sociaux</h4>
-                        <div class="hline-w"></div>
-                        <p>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-tumblr"></i></a>
-                        </p>
-                    </div>
-                    <div class="col-lg-4">
-                        <h4>Où nous trouver</h4>
-                        <div class="hline-w"></div>
-                        <p>
-                            Some Ave, 987,<br/>
-                            23890, New York,<br/>
-                            United States.<br/>
-                        </p>
-                    </div>
-
-                </div><! --/row -->
-            </div><! --/container -->
-        </div><! --/footerwrap -->
+        <tag:footer/>
 
         <!-- Bootstrap core JavaScript
         ================================================== -->
@@ -153,7 +124,6 @@
         <script src="assets/js/jquery.isotope.min.js"></script>
         <script src="assets/js/custom.js"></script>
         <script src="assets/js/jquery.js" type="text/javascript"></script>
-        <script src="assets/js/formulaireVehicule.js" type="text/javascript"></script>    
 
     </body>
 </html>

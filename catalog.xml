@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/WebServiceAssurauto/UtilisateurWebService?wsdl" uri="src/conf/xml-resources/web-service-references/UtilisateurWebService/wsdl/localhost_8080/WebServiceAssurauto/UtilisateurWebService.wsdl"/>
+    <system systemId="http://localhost:8080/WebServiceAssurauto/UtilisateurWebService?xsd=1" uri="src/conf/xml-resources/web-service-references/UtilisateurWebService/wsdl/localhost_8080/WebServiceAssurauto/UtilisateurWebService.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/SOAPAssurAuto/ContactWebService?wsdl" uri="src/conf/xml-resources/web-service-references/ContactWebService/wsdl/localhost_8080/SOAPAssurAuto/ContactWebService.wsdl"/>
     <system systemId="http://localhost:8080/SOAPAssurAuto/ContactWebService?xsd=1" uri="src/conf/xml-resources/web-service-references/ContactWebService/wsdl/localhost_8080/SOAPAssurAuto/ContactWebService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/SOAPAssurAuto/UtilisateurWebService?wsdl" uri="src/conf/xml-resources/web-service-references/UtilisateurWebService/wsdl/localhost_8080/SOAPAssurAuto/UtilisateurWebService.wsdl"/>
+    <system systemId="http://localhost:8080/SOAPAssurAuto/UtilisateurWebService?xsd=1" uri="src/conf/xml-resources/web-service-references/UtilisateurWebService/wsdl/localhost_8080/SOAPAssurAuto/UtilisateurWebService.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/SOAPAssurAuto/VehiculeWebService?wsdl" uri="src/conf/xml-resources/web-service-references/VehiculeWebService/wsdl/localhost_8080/SOAPAssurAuto/VehiculeWebService.wsdl"/>
     <system systemId="http://localhost:8080/SOAPAssurAuto/VehiculeWebService?xsd=1" uri="src/conf/xml-resources/web-service-references/VehiculeWebService/wsdl/localhost_8080/SOAPAssurAuto/VehiculeWebService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/SOAPVehicule/VehiculeWebService?wsdl" uri="src/conf/xml-resources/web-service-references/VehiculeWebService/wsdl/localhost_8080/SOAPVehicule/VehiculeWebService.wsdl"/>
+    <system systemId="http://localhost:8080/SOAPVehicule/VehiculeWebService?xsd=1" uri="src/conf/xml-resources/web-service-references/VehiculeWebService/wsdl/localhost_8080/SOAPVehicule/VehiculeWebService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/SOAPContact/ContactWebService?wsdl" uri="src/conf/xml-resources/web-service-references/ContactWebService/wsdl/localhost_8080/SOAPContact/ContactWebService.wsdl"/>
+    <system systemId="http://localhost:8080/SOAPContact/ContactWebService?xsd=1" uri="src/conf/xml-resources/web-service-references/ContactWebService/wsdl/localhost_8080/SOAPContact/ContactWebService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/SOAPUtilisateur/UtilisateurWebService?wsdl" uri="src/conf/xml-resources/web-service-references/UtilisateurWebService/wsdl/localhost_8080/SOAPUtilisateur/UtilisateurWebService.wsdl"/>
+    <system systemId="http://localhost:8080/SOAPUtilisateur/UtilisateurWebService?xsd=1" uri="src/conf/xml-resources/web-service-references/UtilisateurWebService/wsdl/localhost_8080/SOAPUtilisateur/UtilisateurWebService.xsd_1.xsd"/>
 </catalog>

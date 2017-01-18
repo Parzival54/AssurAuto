@@ -40,10 +40,10 @@ public class Accueil extends HttpServlet {
             String cmd = request.getParameter("cmd");
             String urlSuite = "WEB-INF/erreur.jsp";
 
-            httpSession = request.getSession(true);
-            if (httpSession.getAttribute("connexion") != "true") {
-                httpSession.setAttribute("connexion", "false");
-            }
+//            httpSession = request.getSession(false);
+//            if (httpSession.getAttribute("connexion") != "true") {
+//                httpSession.setAttribute("connexion", "false");
+//            }
 
             if (cmd != null) {
 
@@ -60,13 +60,10 @@ public class Accueil extends HttpServlet {
     public void init() {
         commands.put("accueil", new CmdAccueil());
         commands.put("connexion", new CmdConnexion());
+        commands.put("deconnexion", new CmdDeconnexion());
+        commands.put("monCompte", new CmdMonCompte());
         commands.put("essaiConnexion", new CmdEssaiConnexion());
-    }
-
-    public static void deconnexion() {
-        if (httpSession != null) {
-            httpSession.setAttribute("connexion", "false");
-        }
+        commands.put("creationClient", new CmdCreationClient());
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

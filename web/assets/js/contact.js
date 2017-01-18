@@ -18,7 +18,6 @@ function desactiver() {
         $('#email').prop('disabled',true);
         $('#commentaire').prop('disabled',true);
     }
-    alert($('input[name=cmd]').val());
 }
 
 desactiver();

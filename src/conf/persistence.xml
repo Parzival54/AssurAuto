@@ -5,7 +5,7 @@
     <class>entite.UtilisateurEntite</class>
     <class>entite.VehiculeEntite</class>
     <class>entite.ContactEntite</class>
-    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties/>
   </persistence-unit>
 </persistence>

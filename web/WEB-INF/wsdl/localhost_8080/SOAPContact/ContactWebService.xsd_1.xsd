@@ -32,6 +32,7 @@
 
 <xs:complexType name="contact">
 <xs:sequence>
+<xs:element name="dateDemande" type="xs:string" minOccurs="0"/>
 <xs:element name="demande" type="xs:string" minOccurs="0"/>
 <xs:element name="email" type="xs:string" minOccurs="0"/>
 <xs:element name="id" type="xs:int" minOccurs="0"/>

@@ -1,4 +1,3 @@
-<%@tag import="controleur.Accueil"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%-- 
     Document   : banniere
@@ -67,10 +66,20 @@
 
 
                     <c:if test="${connecte==true}">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">MON COMPTE<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="text-transform: uppercase;">${utilisateur.login}<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="single-post.html">CONTRATS</a></li>
-                            <li><a href="" onclick="<% Accueil.deconnexion(); %>">DECONNEXION</a></li>
+                            <li>
+                                <form id="monCompte" action="Accueil" method="POST">
+                                    <input type="hidden" name="cmd" value="monCompte"/>
+                                </form>
+                                <a href="javascript:;" onclick="document.getElementById('monCompte').submit();">MON COMPTE</a>
+                            </li>
+                            <li>
+                                <form id="deconnexion" action="Accueil" method="POST">
+                                    <input type="hidden" name="cmd" value="deconnexion"/>
+                                </form>
+                                <a href="javascript:;" onclick="document.getElementById('deconnexion').submit();">DECONNEXION</a>
+                            </li>
                             </c:if>
 
                         <c:if test="${connecte==false}">

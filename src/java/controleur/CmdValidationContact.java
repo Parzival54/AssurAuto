@@ -5,10 +5,13 @@
  */
 package controleur;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import webservice.contact.Contact;
+import webservice.utilisateur.Utilisateur;
 
 /**
  *
@@ -22,15 +25,21 @@ public class CmdValidationContact implements ICommand{
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        
+                
         Contact contact = new Contact();
         contact.setTypeDemande(Integer.parseInt(request.getParameter("demande")));
         contact.setEmail(request.getParameter("email"));
         contact.setDemande(request.getParameter("commentaire"));
+        Date dt = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentTime = sdf.format(dt);
+        contact.setDateDemande(currentTime);
         
         HttpSession session = request.getSession();
-        if (session.getAttribute("connexion") == ("true")){
-            contact.setLogin((String) session.getAttribute("login"));
+        
+        if (session.getAttribute("utilisateur") != null){
+            Utilisateur utilisateur = (Utilisateur) session.getAttribute("utilisateur");
+            contact.setLogin(utilisateur.getLogin());
         } else {
             contact.setLogin("aucun");
         }
