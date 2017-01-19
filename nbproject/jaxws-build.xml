@@ -26,22 +26,6 @@
             <isset property="conf.dir"/>
         </condition>
     </target>
-    <target name="wsimport-client-VehiculeWebService" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/VehiculeWebService"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/VehiculeWebService" destdir="${build.generated.dir}/jax-wsCache/VehiculeWebService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/VehiculeWebService/wsdl/localhost_8080/SOAPVehicule/VehiculeWebService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/SOAPVehicule/VehiculeWebService?wsdl" xnocompile="true" xendorsed="true" package="webservice.vehicule">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/VehiculeWebService/wsdl/localhost_8080/SOAPVehicule/VehiculeWebService.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/VehiculeWebService"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/VehiculeWebService">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-VehiculeWebService" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/webservice/vehicule"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/VehiculeWebService"/>
-    </target>
     <target name="wsimport-client-ContactWebService" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/ContactWebService"/>
         <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ContactWebService" destdir="${build.generated.dir}/jax-wsCache/ContactWebService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ContactWebService/wsdl/localhost_8080/SOAPContact/ContactWebService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/SOAPContact/ContactWebService?wsdl" xnocompile="true" xendorsed="true" package="webservice.contact">
@@ -74,5 +58,5 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/webservice/utilisateur"/>
         <delete dir="${build.generated.dir}/jax-wsCache/UtilisateurWebService"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-VehiculeWebService, wsimport-client-ContactWebService, wsimport-client-UtilisateurWebService"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-ContactWebService, wsimport-client-UtilisateurWebService"/>
 </project>
