@@ -5,7 +5,7 @@
  */
 package controleur;
 
-import entite.VehiculeEntite;
+import entite.Vehicule;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -21,13 +21,13 @@ public class CmdProfil implements ICommand{
     
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        VehiculeEntite vehiculeEntite = new VehiculeEntite();
-        vehiculeEntite.setMarque(request.getParameter("marque"));
-        vehiculeEntite.setModele(request.getParameter("modele"));
-        vehiculeEntite.setVersion(request.getParameter("version"));
+        Vehicule vehicule = new Vehicule();
+        vehicule.setMarque(request.getParameter("marque"));
+        vehicule.setModele(request.getParameter("modele"));
+        vehicule.setVersion(request.getParameter("version"));
         
         HttpSession httpSession = request.getSession(true);
-        httpSession.setAttribute("vehiculeEntite", vehiculeEntite);
+        httpSession.setAttribute("vehicule", vehicule);
         
         return "WEB-INF/devisprofil.jsp";
     }

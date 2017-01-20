@@ -5,13 +5,13 @@
  */
 package controleur;
 
+import entite.Utilisateur;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import webservice.contact.Contact;
-import webservice.utilisateur.Utilisateur;
 
 /**
  *
@@ -54,7 +54,5 @@ public class CmdValidationContact implements ICommand{
         webservice.contact.ContactWebService port = service.getContactWebServicePort();
         port.create(entity);
     }
-    
-    
     
 }

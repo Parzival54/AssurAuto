@@ -42,21 +42,5 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/webservice/contact"/>
         <delete dir="${build.generated.dir}/jax-wsCache/ContactWebService"/>
     </target>
-    <target name="wsimport-client-UtilisateurWebService" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/UtilisateurWebService"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/UtilisateurWebService" destdir="${build.generated.dir}/jax-wsCache/UtilisateurWebService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/UtilisateurWebService/wsdl/localhost_8080/SOAPUtilisateur/UtilisateurWebService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/SOAPUtilisateur/UtilisateurWebService?wsdl" xnocompile="true" xendorsed="true" package="webservice.utilisateur">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/UtilisateurWebService/wsdl/localhost_8080/SOAPUtilisateur/UtilisateurWebService.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/UtilisateurWebService"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/UtilisateurWebService">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-UtilisateurWebService" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/webservice/utilisateur"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/UtilisateurWebService"/>
-    </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-ContactWebService, wsimport-client-UtilisateurWebService"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-ContactWebService"/>
 </project>

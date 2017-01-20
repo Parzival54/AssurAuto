@@ -5,10 +5,11 @@
  */
 package controleur;
 
+import entite.Utilisateur;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.codec.digest.DigestUtils;
-import webservice.utilisateur.Utilisateur;
+import rest.REST_Utilisateur;
 
 /**
  *
@@ -21,20 +22,16 @@ public class CmdCreationClient implements ICommand {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
+        
         Utilisateur utilisateur = new Utilisateur();
         utilisateur.setId(Integer.MIN_VALUE);
         utilisateur.setLogin(request.getParameter("pseudo"));
         utilisateur.setEmail(request.getParameter("mail"));
         utilisateur.setPassword(DigestUtils.sha1Hex(request.getParameter("password")));
-        System.out.println(DigestUtils.sha1Hex(request.getParameter("password")).length());
-        create(utilisateur);
+        
+        REST_Utilisateur ru = new REST_Utilisateur();
+        ru.create_JSON(utilisateur);
         return "WEB-INF/accueil.jsp";
-    }
-
-    private static void create(webservice.utilisateur.Utilisateur entity) {
-        webservice.utilisateur.UtilisateurWebService_Service service = new webservice.utilisateur.UtilisateurWebService_Service();
-        webservice.utilisateur.UtilisateurWebService port = service.getUtilisateurWebServicePort();
-        port.create(entity);
     }
 
 }

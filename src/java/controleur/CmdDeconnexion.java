@@ -23,8 +23,6 @@ public class CmdDeconnexion implements ICommand {
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         Connexion connexion = new Connexion();
         connexion.setConnexion(false);
-        String cmd = request.getParameter("cmd");
-        System.out.println(cmd);
         HttpSession httpSession = request.getSession(false);
         httpSession.invalidate();
         return "WEB-INF/accueil.jsp";

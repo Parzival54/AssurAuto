@@ -99,7 +99,6 @@
                                         <button id="validerProfil" name="singlebutton" class="btn btn-theme" type="submit">Valider</button>
                                     </div>
                                 </div>
-
                             </fieldset>
                         </form>
                     </div>
@@ -124,6 +123,7 @@
         <script src="assets/js/jquery.isotope.min.js"></script>
         <script src="assets/js/custom.js"></script>
         <script src="assets/js/jquery.js" type="text/javascript"></script>
+        <script src="assets/js/sha1.js" type="text/javascript"></script>
 
     </body>
 </html>

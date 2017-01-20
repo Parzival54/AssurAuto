@@ -6,10 +6,12 @@
 package controleur;
 
 import bean.Connexion;
+import entite.Utilisateur;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import webservice.utilisateur.Utilisateur;
+import org.apache.commons.codec.digest.DigestUtils;
+import rest.REST_Utilisateur;
 
 /**
  *
@@ -23,12 +25,17 @@ public class CmdEssaiConnexion implements ICommand{
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         
-        Boolean connecte = verifier(request.getParameter("identifiant"), request.getParameter("password"));
+        REST_Utilisateur ru = new REST_Utilisateur();
+        Boolean connecte = Boolean.valueOf(
+                ru.verifier(String.class,
+                        request.getParameter("identifiant"),
+                        DigestUtils.sha1Hex(request.getParameter("password")))
+        );
         if (connecte){
             Connexion connexion = new Connexion();
             connexion.setConnexion(true);
             Utilisateur utilisateur;
-            utilisateur = findByLogin(request.getParameter("identifiant"));
+            utilisateur = ru.findByLogin_JSON(Utilisateur.class, request.getParameter("identifiant"));
             HttpSession httpSession = request.getSession(false);
             httpSession.setAttribute("connexion", connexion);
             httpSession.setAttribute("utilisateur", utilisateur);
@@ -41,19 +48,5 @@ public class CmdEssaiConnexion implements ICommand{
             return "WEB-INF/connexion.jsp";
         }
     }
-
-    private static Boolean verifier(java.lang.String login, java.lang.String password) {
-        webservice.utilisateur.UtilisateurWebService_Service service = new webservice.utilisateur.UtilisateurWebService_Service();
-        webservice.utilisateur.UtilisateurWebService port = service.getUtilisateurWebServicePort();
-        return port.verifier(login, password);
-    }
-
-    private static Utilisateur findByLogin(java.lang.String login) {
-        webservice.utilisateur.UtilisateurWebService_Service service = new webservice.utilisateur.UtilisateurWebService_Service();
-        webservice.utilisateur.UtilisateurWebService port = service.getUtilisateurWebServicePort();
-        return port.findByLogin(login);
-    }
-    
-    
     
 }

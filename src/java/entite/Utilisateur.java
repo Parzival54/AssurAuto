@@ -6,42 +6,38 @@
 package entite;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author merguez
  */
-@Entity(name = "utilisateur")
+@Entity
 @Table(name = "utilisateur")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "utilisateur.findAll", query = "SELECT u FROM utilisateur u")
-    , @NamedQuery(name = "utilisateur.findById", query = "SELECT u FROM utilisateur u WHERE u.id = :id")
-    , @NamedQuery(name = "utilisateur.findByLogin", query = "SELECT u FROM utilisateur u WHERE u.login = :login")
-    , @NamedQuery(name = "utilisateur.findByPassword", query = "SELECT u FROM utilisateur u WHERE u.password = :password")})
-public class UtilisateurEntite implements Serializable {
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userid")
-    private List<ContactEntite> contactList;
+    @NamedQuery(name = "Utilisateur.findAll", query = "SELECT u FROM Utilisateur u")
+    , @NamedQuery(name = "Utilisateur.findById", query = "SELECT u FROM Utilisateur u WHERE u.id = :id")
+    , @NamedQuery(name = "Utilisateur.findByLogin", query = "SELECT u FROM Utilisateur u WHERE u.login = :login")
+    , @NamedQuery(name = "Utilisateur.findByPassword", query = "SELECT u FROM Utilisateur u WHERE u.password = :password")
+    , @NamedQuery(name = "Utilisateur.findByEmail", query = "SELECT u FROM Utilisateur u WHERE u.email = :email")})
+public class Utilisateur implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
@@ -54,18 +50,25 @@ public class UtilisateurEntite implements Serializable {
     @Size(min = 1, max = 40)
     @Column(name = "password")
     private String password;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
+    @Column(name = "email")
+    private String email;
 
-    public UtilisateurEntite() {
+    public Utilisateur() {
     }
 
-    public UtilisateurEntite(Integer id) {
+    public Utilisateur(Integer id) {
         this.id = id;
     }
 
-    public UtilisateurEntite(Integer id, String login, String password) {
+    public Utilisateur(Integer id, String login, String password, String email) {
         this.id = id;
         this.login = login;
         this.password = password;
+        this.email = email;
     }
 
     public Integer getId() {
@@ -92,6 +95,14 @@ public class UtilisateurEntite implements Serializable {
         this.password = password;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -102,10 +113,10 @@ public class UtilisateurEntite implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof UtilisateurEntite)) {
+        if (!(object instanceof Utilisateur)) {
             return false;
         }
-        UtilisateurEntite other = (UtilisateurEntite) object;
+        Utilisateur other = (Utilisateur) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -115,15 +126,6 @@ public class UtilisateurEntite implements Serializable {
     @Override
     public String toString() {
         return "entite.Utilisateur[ id=" + id + " ]";
-    }
-
-    @XmlTransient
-    public List<ContactEntite> getContactList() {
-        return contactList;
-    }
-
-    public void setContactList(List<ContactEntite> contactList) {
-        this.contactList = contactList;
     }
     
 }

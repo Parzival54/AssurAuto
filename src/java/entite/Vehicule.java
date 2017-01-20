@@ -21,20 +21,17 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author merguez
  */
-@Entity(name = "vehicule")
+@Entity
 @Table(name = "vehicule")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "vehicule.findAll", query = "SELECT v FROM vehicule v")
-    , @NamedQuery(name = "vehicule.findById", query = "SELECT v FROM vehicule v WHERE v.id = :id")
-    , @NamedQuery(name = "vehicule.findByMarque", query = "SELECT v FROM vehicule v WHERE v.marque = :marque")
-    , @NamedQuery(name = "vehicule.findByModele", query = "SELECT v FROM vehicule v WHERE v.modele = :modele")
-    , @NamedQuery(name = "vehicule.findByVersion", query = "SELECT v FROM vehicule v WHERE v.version = :version")
-    , @NamedQuery(name = "vehicule.findByCoefficient", query = "SELECT v FROM vehicule v WHERE v.coefficient = :coefficient")
-    , @NamedQuery(name = "vehicule.findAllMarque", query = "SELECT DISTINCT v.marque FROM vehicule v")
-    , @NamedQuery(name = "vehicule.findAllModele", query = "SELECT DISTINCT v.modele FROM vehicule v WHERE v.marque = :marque")
-    , @NamedQuery(name = "vehicule.findAllVersion", query = "SELECT DISTINCT v.version FROM vehicule v WHERE v.marque = :marque AND v.modele = :modele")})
-public class VehiculeEntite implements Serializable {
+    @NamedQuery(name = "Vehicule.findAll", query = "SELECT v FROM Vehicule v")
+    , @NamedQuery(name = "Vehicule.findById", query = "SELECT v FROM Vehicule v WHERE v.id = :id")
+    , @NamedQuery(name = "Vehicule.findByMarque", query = "SELECT v FROM Vehicule v WHERE v.marque = :marque")
+    , @NamedQuery(name = "Vehicule.findByModele", query = "SELECT v FROM Vehicule v WHERE v.modele = :modele")
+    , @NamedQuery(name = "Vehicule.findByVersion", query = "SELECT v FROM Vehicule v WHERE v.version = :version")
+    , @NamedQuery(name = "Vehicule.findByCoefficient", query = "SELECT v FROM Vehicule v WHERE v.coefficient = :coefficient")})
+public class Vehicule implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -62,14 +59,14 @@ public class VehiculeEntite implements Serializable {
     @Column(name = "coefficient")
     private int coefficient;
 
-    public VehiculeEntite() {
+    public Vehicule() {
     }
 
-    public VehiculeEntite(Integer id) {
+    public Vehicule(Integer id) {
         this.id = id;
     }
 
-    public VehiculeEntite(Integer id, String marque, String modele, String version, int coefficient) {
+    public Vehicule(Integer id, String marque, String modele, String version, int coefficient) {
         this.id = id;
         this.marque = marque;
         this.modele = modele;
@@ -127,10 +124,10 @@ public class VehiculeEntite implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof VehiculeEntite)) {
+        if (!(object instanceof Vehicule)) {
             return false;
         }
-        VehiculeEntite other = (VehiculeEntite) object;
+        Vehicule other = (Vehicule) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
