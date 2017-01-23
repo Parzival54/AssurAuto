@@ -25,7 +25,7 @@
         <div id="headerwrap">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form id="devis" class="form-horizontal" action="Contact" method="POST">
+                    <form id="devis" class="form-horizontal" action="ContactUs" method="POST">
                         <c:choose>
                             <c:when test="${empty contact}">
                                 <input type="hidden" name="cmd" value="validationContact"/>

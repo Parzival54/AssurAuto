@@ -47,7 +47,7 @@
                                             <td>
                                                 <div id="souscrire" class="row">
                                                     <div class="col-lg-8">
-                                                        <span>45,00 € / mois TTC</span>
+                                                        <span>${prime} € / mois TTC</span>
                                                     </div>
                                                 </div>
                                                 <div class="row">

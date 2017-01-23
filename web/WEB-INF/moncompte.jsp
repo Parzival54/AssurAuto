@@ -23,8 +23,8 @@
         <!-- Fixed navbar -->
     <tag:banniere active="0" connecte="${connexion.connexion}"/>
 
-    <div id="headerwrap" style="background-color: #428bca">
-        <div id="formulaire" class="row">
+    <div id="headerwrap" style="background-color: #428bca;">
+        <div id="formulaire" class="row" style="min-height: 60vh;">
             <div class="col-lg-8 col-lg-offset-2">
                 <div class="col-lg-12">
                     <form id="creationClient" class="form-horizontal" action="Accueil" method="POST">
@@ -32,42 +32,33 @@
                         <fieldset>
 
                             <legend>Mon compte</legend>
-
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="identifiant">Identifiant</label>
-                                <div class="col-md-4">
-                                    <input type="text" id="pseudo" name="pseudo" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="mail">E-mail</label>
-                                <div class="col-md-4">
-                                    <input type="email" id="mail" name="mail" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="password">Mot de passe</label>
-                                <div class="col-md-4">
-                                    <input type="password" id="password" name="password" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="password2">Confirmer mot de passe</label>
-                                <div class="col-md-4">
-                                    <input type="password" id="password2" name="password2" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-lg-4 control-label" for="singlebutton"></label>
-                                <div class="col-lg-4">
-                                    <button id="validerProfil" name="singlebutton" class="btn btn-theme" type="submit">Valider</button>
-                                </div>
-                            </div>
-
+                            
+                            <table id="infosClient" border="1" style="width: 80%; margin-left: 10%; margin-right: 10%; margin-top: 10%">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 20%"></th>
+                                        <th style="width: 80%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Identifiant :</td>
+                                        <td>${utilisateur.login}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>E-mail :</td>
+                                        <td>${utilisateur.email}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mot de passe :</td>
+                                        <td><button class="btn btn-theme">Modifier</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Contrats :</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </fieldset>
                     </form>
                 </div>
@@ -79,6 +70,18 @@
     FOOTER
      ***************************************************************************************************************** -->
     <tag:footer/>
+    
+    <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/retina-1.1.0.js"></script>
+        <script src="assets/js/jquery.hoverdir.js"></script>
+        <script src="assets/js/jquery.hoverex.min.js"></script>
+        <script src="assets/js/jquery.prettyPhoto.js"></script>
+        <script src="assets/js/jquery.isotope.min.js"></script>
+        <script src="assets/js/custom.js"></script>
 
 </body>
 </html>

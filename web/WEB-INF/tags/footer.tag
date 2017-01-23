@@ -6,7 +6,9 @@
                     <div class="col-lg-4">
                         <h4>A propos</h4>
                         <div class="hline-w"></div>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                        <p>Assur'Auto<br/>
+                        Société d'assurance mutuelle à cotisations variables.<br/>
+                        Entreprise régie par le Code des Assurances.</p>
                     </div>
                     <div class="col-lg-4">
                         <h4>Réseaux sociaux</h4>
@@ -22,9 +24,9 @@
                         <h4>Où nous trouver</h4>
                         <div class="hline-w"></div>
                         <p>
-                            Some Ave, 987,<br/>
-                            23890, New York,<br/>
-                            United States.<br/>
+                            123 rue principale<br/>
+                            54000 Nancy<br/>
+                            France<br/>
                         </p>
                     </div>
 

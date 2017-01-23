@@ -9,6 +9,7 @@ import bean.UtilisationBean;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import rest.REST_Vehicule;
 
 /**
  *
@@ -21,13 +22,16 @@ public class CmdPersonnalise implements ICommand{
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        UtilisationBean utilisationBean = new UtilisationBean();
-        utilisationBean.setKms(request.getParameter("kms"));
-        utilisationBean.setFrequence(request.getParameter("frequence"));
-        utilisationBean.setTravail(request.getParameter("travail"));
+        
+        Double coef = Double.parseDouble(request.getParameter("kms")) 
+                * Double.parseDouble(request.getParameter("frequence"))
+                * Double.parseDouble(request.getParameter("travail"));
+        
+        REST_Vehicule rv = new REST_Vehicule();
+        request.setAttribute("prime",rv.calculPrime(Double.class, 1, coef));
         
         HttpSession httpSession = request.getSession();
-        httpSession.setAttribute("utilisationBean", utilisationBean);
+        //httpSession.setAttribute("utilisationBean", utilisationBean);
         
         return "WEB-INF/devisperso.jsp";
     }

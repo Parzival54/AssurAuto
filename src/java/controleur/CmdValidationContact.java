@@ -6,12 +6,12 @@
 package controleur;
 
 import entite.Utilisateur;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import webservice.contact.Contact;
+import entite.Contact;
+import rest.REST_Contact;
 
 /**
  *
@@ -30,10 +30,7 @@ public class CmdValidationContact implements ICommand{
         contact.setTypeDemande(Integer.parseInt(request.getParameter("demande")));
         contact.setEmail(request.getParameter("email"));
         contact.setDemande(request.getParameter("commentaire"));
-        Date dt = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String currentTime = sdf.format(dt);
-        contact.setDateDemande(currentTime);
+        contact.setDateDemande(new Date());
         
         HttpSession session = request.getSession();
         
@@ -44,15 +41,11 @@ public class CmdValidationContact implements ICommand{
             contact.setLogin("aucun");
         }
         request.setAttribute("contact", contact);
-        create(contact);
+        
+        REST_Contact rc = new REST_Contact();
+        rc.create_JSON(contact);
                 
         return "WEB-INF/contact.jsp";
-    }
-
-    private static void create(webservice.contact.Contact entity) {
-        webservice.contact.ContactWebService_Service service = new webservice.contact.ContactWebService_Service();
-        webservice.contact.ContactWebService port = service.getContactWebServicePort();
-        port.create(entity);
     }
     
 }

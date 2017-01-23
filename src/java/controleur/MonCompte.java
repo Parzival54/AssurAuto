@@ -18,10 +18,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author merguez
  */
-public class Contact extends HttpServlet {
-
-    private final Map commands = new HashMap();
+public class MonCompte extends HttpServlet {
     
+    private final Map commands = new HashMap();
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -45,15 +45,13 @@ public class Contact extends HttpServlet {
                 
                 request.getRequestDispatcher(urlSuite).forward(request,response);
             }
-            
         }
     }
     
     @Override
     public void init(){
-    commands.put("accueil", new CmdAccueil());
-    commands.put("contact", new CmdContact());
-    commands.put("validationContact", new CmdValidationContact());
+        commands.put("monCompte", new CmdMonCompte());
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

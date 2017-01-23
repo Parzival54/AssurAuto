@@ -88,3 +88,17 @@
     font-size: 25px;
     font-weight: bold;
 }
+
+#infosClient tr td:nth-child(2){
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+}
+
+#infosClient tr td:first-child{
+    text-align: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 5px;
+}

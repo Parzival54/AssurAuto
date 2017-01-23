@@ -58,18 +58,17 @@
                     <c:if test="${active!=3}">
                     <li>
                     </c:if>
-                    <form id="navcontact" action="Contact" method="POST">
+                    <form id="navcontact" action="ContactUs" method="POST">
                         <input type="hidden" name="cmd" value="contact"/>
                     </form>
-                    <a href="javascript:;" onclick="document.getElementById('navcontact').submit();">CONTACT</a></li>
+                    <a href="javascript:;" onclick="document.getElementById('navcontact').submit();">CONTACT</a>
+                </li>
                 <li class="dropdown">
-
-
                     <c:if test="${connecte==true}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="text-transform: uppercase;">${utilisateur.login}<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <form id="monCompte" action="Accueil" method="POST">
+                                <form id="monCompte" action="MonCompte" method="POST">
                                     <input type="hidden" name="cmd" value="monCompte"/>
                                 </form>
                                 <a href="javascript:;" onclick="document.getElementById('monCompte').submit();">MON COMPTE</a>
@@ -80,20 +79,20 @@
                                 </form>
                                 <a href="javascript:;" onclick="document.getElementById('deconnexion').submit();">DECONNEXION</a>
                             </li>
-                            </c:if>
-
-                        <c:if test="${connecte==false}">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">ESPACE CLIENT<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <form id="connexion" action="Accueil" method="POST">
-                                        <input type="hidden" name="cmd" value="connexion"/>
-                                    </form>
-                                    <a href="javascript:;" onclick="document.getElementById('connexion').submit();">CONNEXION</a></li>
-                                </c:if>
-
-
                         </ul>
+                    </c:if>
+
+                    <c:if test="${connecte==false}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">ESPACE CLIENT<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <form id="connexion" action="Accueil" method="POST">
+                                    <input type="hidden" name="cmd" value="connexion"/>
+                                </form>
+                                <a href="javascript:;" onclick="document.getElementById('connexion').submit();">CONNEXION</a>
+                            </li>
+                        </ul>
+                    </c:if>
                 </li>
             </ul>
         </div><!--/.nav-collapse -->

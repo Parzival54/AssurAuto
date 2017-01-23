@@ -25,7 +25,7 @@ public class CmdUtilisation implements ICommand{
         profilBean.setNom(request.getParameter("nom"));
         profilBean.setPrenom(request.getParameter("prenom"));
         profilBean.setMail(request.getParameter("mail"));
-        profilBean.setJeune(Boolean.parseBoolean(request.getParameter("jeune")));
+        profilBean.setFormule(Integer.parseInt(request.getParameter("formule")));
         
         HttpSession httpSession = request.getSession(true);
         httpSession.setAttribute("profilBean", profilBean);

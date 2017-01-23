@@ -17,7 +17,7 @@ public class ProfilBean implements Serializable {
     private String nom;
     private String prenom;
     private String mail;
-    private boolean jeune;
+    private Integer formule;
     
     public static final String PROP_SAMPLE_PROPERTY = "sampleProperty";
     
@@ -49,12 +49,12 @@ public class ProfilBean implements Serializable {
         this.mail = mail;
     }
 
-    public boolean isJeune() {
-        return jeune;
+    public Integer getFormule() {
+        return formule;
     }
 
-    public void setJeune(boolean jeune) {
-        this.jeune = jeune;
+    public void setFormule(Integer formule) {
+        this.formule = formule;
     }
     
     public ProfilBean() {

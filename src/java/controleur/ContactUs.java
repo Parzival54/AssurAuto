@@ -13,17 +13,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author merguez
  */
-public class Accueil extends HttpServlet {
+public class ContactUs extends HttpServlet {
 
     private final Map commands = new HashMap();
-    private static HttpSession httpSession;
-
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -39,30 +37,23 @@ public class Accueil extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String cmd = request.getParameter("cmd");
             String urlSuite = "WEB-INF/erreur.jsp";
-
-//            httpSession = request.getSession(false);
-//            if (httpSession.getAttribute("connexion") != "true") {
-//                httpSession.setAttribute("connexion", "false");
-//            }
-
-            if (cmd != null) {
-
+            
+            if (cmd != null){
+                
                 ICommand com = (ICommand) commands.get(cmd);
                 urlSuite = com.execute(request, response);
-
-                request.getRequestDispatcher(urlSuite).forward(request, response);
+                
+                request.getRequestDispatcher(urlSuite).forward(request,response);
             }
-
+            
         }
     }
-
+    
     @Override
-    public void init() {
-        commands.put("accueil", new CmdAccueil());
-        commands.put("connexion", new CmdConnexion());
-        commands.put("deconnexion", new CmdDeconnexion());
-        commands.put("essaiConnexion", new CmdEssaiConnexion());
-        commands.put("creationClient", new CmdCreationClient());
+    public void init(){
+    commands.put("accueil", new CmdAccueil());
+    commands.put("contact", new CmdContact());
+    commands.put("validationContact", new CmdValidationContact());
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

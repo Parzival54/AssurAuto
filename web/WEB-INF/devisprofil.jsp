@@ -62,11 +62,13 @@
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label class="col-lg-4 control-label" for="jeune">Jeune conducteur</label>
+                                    <label class="col-lg-4 control-label" for="jeune">Formule</label>
                                     <div class="col-lg-4">
-                                        <select id="jeune" name="jeune" class="form-control">
-                                            <option value="true">OUI</option>
-                                            <option value="false">NON</option>
+                                        <select id="jeune" name="formule" class="form-control">
+                                            <option value="0">Toutes</option>
+                                            <option value="1">1 - Tiers</option>
+                                            <option value="2">2 - Tiers plus</option>
+                                            <option value="3">3 - Tous risques</option>
                                         </select>
                                     </div>
                                 </div>
