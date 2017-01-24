@@ -3,29 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controleur;
+package controleur.devis;
 
-import bean.Connexion;
+import controleur.ICommand;
+import entite.Vehicule;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import rest.REST_Vehicule;
 
 /**
  *
  * @author merguez
  */
-public class CmdDeconnexion implements ICommand {
+public class CmdProfil implements ICommand {
 
-    public CmdDeconnexion() {
+    public CmdProfil() {
     }
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        Connexion connexion = new Connexion();
-        connexion.setConnexion(false);
-        HttpSession httpSession = request.getSession(false);
-        httpSession.invalidate();
-        return "WEB-INF/accueil.jsp";
+        REST_Vehicule rv = new REST_Vehicule();
+        Vehicule vehicule = rv.find_XML(Vehicule.class, request.getParameter("version"));
+        HttpSession httpSession = request.getSession(true);
+        httpSession.setAttribute("vehicule", vehicule);
+
+        return "WEB-INF/devisprofil.jsp";
     }
 
 }

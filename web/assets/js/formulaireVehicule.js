@@ -30,7 +30,7 @@ function chargermarque() {
                 break;
             case "versions":
                 for (elt in tab) {
-                    $('#version').append('<option>' + tab[elt].version + '</option>');
+                    $('#version').append('<option value="' + tab[elt].id + '">' + tab[elt].version + '</option>');
                 }
                 $('#version').attr('disabled', false);
                 break;

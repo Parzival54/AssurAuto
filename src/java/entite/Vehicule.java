@@ -62,17 +62,17 @@ public class Vehicule implements Serializable {
     public Vehicule() {
     }
 
-    public Vehicule(Integer id) {
-        this.id = id;
-    }
-
-    public Vehicule(Integer id, String marque, String modele, String version, int coefficient) {
-        this.id = id;
-        this.marque = marque;
-        this.modele = modele;
-        this.version = version;
-        this.coefficient = coefficient;
-    }
+//    public Vehicule(Integer id) {
+//        this.id = id;
+//    }
+//
+//    public Vehicule(Integer id, String marque, String modele, String version, int coefficient) {
+//        this.id = id;
+//        this.marque = marque;
+//        this.modele = modele;
+//        this.version = version;
+//        this.coefficient = coefficient;
+//    }
 
     public Integer getId() {
         return id;

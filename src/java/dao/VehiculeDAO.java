@@ -5,6 +5,7 @@
  */
 package dao;
 
+import entite.Vehicule;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,9 +69,9 @@ public class VehiculeDAO {
         return modeles;
     }
 
-    public static List<String> listerVersions(String marque, String modele) throws SQLException {
+    public static List<Vehicule> listerVersions(String marque, String modele) throws SQLException {
 
-        List<String> versions = new ArrayList<>();
+        List<Vehicule> vehicules = new ArrayList<>();
         try {
             String resultat = rv.findAllVersionByModele_JSON(String.class, marque, modele);
             Object object = parser.parse(resultat);
@@ -78,15 +79,20 @@ public class VehiculeDAO {
 
             for (Object o : resultats) {
                 JSONObject jso = (JSONObject) o;
-                versions.add((String) jso.get("version"));
+                Vehicule v = new Vehicule();
+                v.setId(((Long) jso.get("id")).intValue());
+                v.setMarque((String) jso.get("marque"));
+                v.setModele((String) jso.get("modele"));
+                v.setVersion((String) jso.get("version"));
+                v.setCoefficient(((Long) jso.get("coefficient")).intValue());
+                vehicules.add(v);
             }
 
         } catch (ParseException ex) {
             Logger.getLogger(VehiculeDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return versions;
-
+        return vehicules;
     }
 
 }

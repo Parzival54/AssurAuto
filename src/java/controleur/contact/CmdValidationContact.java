@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controleur;
+package controleur.contact;
 
+import controleur.ICommand;
 import entite.Utilisateur;
 import java.util.Date;
 import javax.servlet.http.HttpServletRequest;

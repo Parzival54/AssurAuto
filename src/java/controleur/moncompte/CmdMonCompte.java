@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controleur;
+package controleur.moncompte;
 
+import controleur.ICommand;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,14 +13,15 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author merguez
  */
-public class CmdContact implements ICommand{
+public class CmdMonCompte implements ICommand{
 
-    public CmdContact() {
+    public CmdMonCompte() {
     }
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        return "WEB-INF/contact.jsp";
+        
+        return "WEB-INF/moncompte.jsp";
     }
     
 }

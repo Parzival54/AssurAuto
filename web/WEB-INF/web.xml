@@ -2,19 +2,19 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>Devis</servlet-name>
-        <servlet-class>controleur.Devis</servlet-class>
+        <servlet-class>controleur.devis.Devis</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Accueil</servlet-name>
-        <servlet-class>controleur.Accueil</servlet-class>
+        <servlet-class>controleur.accueil.Accueil</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ContactUs</servlet-name>
-        <servlet-class>controleur.ContactUs</servlet-class>
+        <servlet-class>controleur.contact.ContactUs</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>MonCompte</servlet-name>
-        <servlet-class>controleur.MonCompte</servlet-class>
+        <servlet-class>controleur.moncompte.MonCompte</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Devis</servlet-name>

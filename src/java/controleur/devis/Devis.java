@@ -1,10 +1,13 @@
+package controleur.devis;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controleur;
 
+import controleur.contact.CmdContact;
+import controleur.ICommand;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -18,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author merguez
  */
-public class MonCompte extends HttpServlet {
+public class Devis extends HttpServlet {
     
     private final Map commands = new HashMap();
 
@@ -45,13 +48,20 @@ public class MonCompte extends HttpServlet {
                 
                 request.getRequestDispatcher(urlSuite).forward(request,response);
             }
+            
         }
     }
     
     @Override
     public void init(){
-        commands.put("monCompte", new CmdMonCompte());
-        
+        commands.put("devisvehicule", new CmdDevis());
+        commands.put("contact", new CmdContact());
+        commands.put("devisprofil", new CmdProfil());
+        commands.put("devisutilisation", new CmdUtilisation());
+        commands.put("devisperso", new CmdPersonnalise());
+        commands.put("souscrire", new CmdSouscrire());
+        commands.put("enregistrer", new CmdEnregistrer());
+        commands.put("annuler", new CmdAnnuler());
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

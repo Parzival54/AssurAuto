@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controleur;
+package controleur.moncompte;
 
 import bean.Connexion;
+import controleur.ICommand;
 import entite.Utilisateur;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

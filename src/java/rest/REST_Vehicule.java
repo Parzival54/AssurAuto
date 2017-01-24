@@ -115,7 +115,7 @@ public class REST_Vehicule {
         webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).post(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_JSON));
     }
 
-    public <T> T calculPrime(Class<T> responseType, Integer id, Double coef) throws ClientErrorException {
+    public <T> T calculPrime(Class<T> responseType, String id, String coef) throws ClientErrorException {
         WebTarget resource = webTarget;
         resource = resource.path(java.text.MessageFormat.format("prime/{0}/{1}", new Object[]{id, coef}));
         return resource.request(javax.ws.rs.core.MediaType.TEXT_PLAIN).get(responseType);

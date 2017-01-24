@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controleur;
+package controleur.moncompte;
 
+import controleur.ICommand;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,14 +13,14 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author merguez
  */
-public class CmdAnnuler implements ICommand{
-
-    public CmdAnnuler() {
+public class CmdConnexion implements ICommand{
+    
+    public CmdConnexion(){
     }
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        return "WEB-INF/accueil.jsp";
+        return "WEB-INF/connexion.jsp";
     }
     
 }

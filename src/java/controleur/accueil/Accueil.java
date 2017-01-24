@@ -3,8 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controleur;
+package controleur.accueil;
 
+import controleur.moncompte.CmdConnexion;
+import controleur.moncompte.CmdCreationClient;
+import controleur.moncompte.CmdDeconnexion;
+import controleur.moncompte.CmdEssaiConnexion;
+import controleur.ICommand;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -13,15 +18,17 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author merguez
  */
-public class ContactUs extends HttpServlet {
+public class Accueil extends HttpServlet {
 
     private final Map commands = new HashMap();
-    
+    private static HttpSession httpSession;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -37,23 +44,30 @@ public class ContactUs extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String cmd = request.getParameter("cmd");
             String urlSuite = "WEB-INF/erreur.jsp";
-            
-            if (cmd != null){
-                
+
+//            httpSession = request.getSession(false);
+//            if (httpSession.getAttribute("connexion") != "true") {
+//                httpSession.setAttribute("connexion", "false");
+//            }
+
+            if (cmd != null) {
+
                 ICommand com = (ICommand) commands.get(cmd);
                 urlSuite = com.execute(request, response);
-                
-                request.getRequestDispatcher(urlSuite).forward(request,response);
+
+                request.getRequestDispatcher(urlSuite).forward(request, response);
             }
-            
+
         }
     }
-    
+
     @Override
-    public void init(){
-    commands.put("accueil", new CmdAccueil());
-    commands.put("contact", new CmdContact());
-    commands.put("validationContact", new CmdValidationContact());
+    public void init() {
+        commands.put("accueil", new CmdAccueil());
+        commands.put("connexion", new CmdConnexion());
+        commands.put("deconnexion", new CmdDeconnexion());
+        commands.put("essaiConnexion", new CmdEssaiConnexion());
+        commands.put("creationClient", new CmdCreationClient());
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
