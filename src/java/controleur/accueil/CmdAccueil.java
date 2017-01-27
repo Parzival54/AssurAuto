@@ -8,6 +8,7 @@ package controleur.accueil;
 import controleur.ICommand;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -20,6 +21,11 @@ public class CmdAccueil implements ICommand{
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
+        
+        HttpSession session = request.getSession();
+        String tokenSession = session.getId();
+        session.setAttribute("tokenSession", tokenSession);
+        
         return "WEB-INF/accueil.jsp";
     }
     

@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib tagdir="/WEB-INF/tags" prefix="tag"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -47,7 +48,8 @@
                                             <td>
                                                 <div id="souscrire" class="row">
                                                     <div class="col-lg-8">
-                                                        <span>${prime} € / mois TTC</span>
+                                                        <span style="font-size: 30px; color: black; font-weight: normal">Formule choisie : ${formule.libelle}<br/></span>
+                                                        <span><fmt:formatNumber value="${prime}" minFractionDigits="2"/> € / mois TTC</span>
                                                     </div>
                                                 </div>
                                                 <div class="row">

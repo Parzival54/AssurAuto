@@ -30,7 +30,7 @@ public class REST_Utilisateur {
 
     public REST_Utilisateur() {
         client = javax.ws.rs.client.ClientBuilder.newClient();
-        webTarget = client.target(BASE_URI).path("entites.utilisateur");
+        webTarget = client.target(BASE_URI).path("entite.utilisateur");
     }
 
     public String countREST() throws ClientErrorException {

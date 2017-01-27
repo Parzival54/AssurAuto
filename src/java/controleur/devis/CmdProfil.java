@@ -24,7 +24,7 @@ public class CmdProfil implements ICommand {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         REST_Vehicule rv = new REST_Vehicule();
-        Vehicule vehicule = rv.find_XML(Vehicule.class, request.getParameter("version"));
+        Vehicule vehicule = rv.find_JSON(Vehicule.class, request.getParameter("version"));
         HttpSession httpSession = request.getSession(true);
         httpSession.setAttribute("vehicule", vehicule);
 

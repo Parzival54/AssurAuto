@@ -11,8 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -25,7 +23,6 @@ import rest.REST_Vehicule;
  */
 public class VehiculeDAO {
 
-    private static final EntityManager em = Persistence.createEntityManagerFactory("AssurAutoPU").createEntityManager();
     private static final REST_Vehicule rv = new REST_Vehicule();
     private static final JSONParser parser = new JSONParser();
 
@@ -80,11 +77,11 @@ public class VehiculeDAO {
             for (Object o : resultats) {
                 JSONObject jso = (JSONObject) o;
                 Vehicule v = new Vehicule();
-                v.setId(((Long) jso.get("id")).intValue());
+                v.setId(((Long) jso.get("id")));
                 v.setMarque((String) jso.get("marque"));
                 v.setModele((String) jso.get("modele"));
                 v.setVersion((String) jso.get("version"));
-                v.setCoefficient(((Long) jso.get("coefficient")).intValue());
+                v.setCoefficient(((Double) jso.get("coefficient")));
                 vehicules.add(v);
             }
 

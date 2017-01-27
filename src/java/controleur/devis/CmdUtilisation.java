@@ -5,11 +5,14 @@
  */
 package controleur.devis;
 
-import bean.ProfilBean;
 import controleur.ICommand;
+import entite.Contrat;
+import entite.Formule;
+import entite.Utilisateur;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import rest.REST_Formule;
 
 /**
  *
@@ -22,14 +25,22 @@ public class CmdUtilisation implements ICommand{
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        ProfilBean profilBean = new ProfilBean();
-        profilBean.setNom(request.getParameter("nom"));
-        profilBean.setPrenom(request.getParameter("prenom"));
-        profilBean.setMail(request.getParameter("mail"));
-        profilBean.setFormule(Integer.parseInt(request.getParameter("formule")));
+        
+        Utilisateur utilisateur = new Utilisateur();
+        utilisateur.setNom(request.getParameter("nom"));
+        utilisateur.setPrenom(request.getParameter("prenom"));
+        utilisateur.setEmail(request.getParameter("mail"));
+        
+        REST_Formule rf = new REST_Formule();
+        Formule formule = rf.find_JSON(Formule.class, request.getParameter("formule"));
+        
+        Contrat contrat = new Contrat();
+        contrat.setFormule(formule);
         
         HttpSession httpSession = request.getSession(true);
-        httpSession.setAttribute("profilBean", profilBean);
+        httpSession.setAttribute("utilisateur", utilisateur);
+        httpSession.setAttribute("contrat", contrat);
+        httpSession.setAttribute("formule", formule);
         
         return "WEB-INF/devisutilisation.jsp";
     }

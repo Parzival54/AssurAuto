@@ -57,6 +57,10 @@
                                         <td>Contrats :</td>
                                         <td></td>
                                     </tr>
+                                    <tr>
+                                        <td>Devis :</td>
+                                        <td></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </fieldset>

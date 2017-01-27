@@ -14,11 +14,11 @@ import javax.ws.rs.client.WebTarget;
  * [entites.contact]<br>
  * USAGE:
  * <pre>
- *        REST_Contact client = new REST_Contact();
- *        Object response = client.XXX(...);
- *        // do whatever with response
- *        client.close();
- * </pre>
+        REST_Contact client = new REST_Contact();
+        Object response = client.XXX(...);
+        // do whatever with response
+        client.close();
+ </pre>
  *
  * @author merguez
  */
@@ -30,7 +30,7 @@ public class REST_Contact {
 
     public REST_Contact() {
         client = javax.ws.rs.client.ClientBuilder.newClient();
-        webTarget = client.target(BASE_URI).path("entites.contact");
+        webTarget = client.target(BASE_URI).path("entite.contact");
     }
 
     public String countREST() throws ClientErrorException {

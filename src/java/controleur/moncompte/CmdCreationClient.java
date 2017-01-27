@@ -25,7 +25,6 @@ public class CmdCreationClient implements ICommand {
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         
         Utilisateur utilisateur = new Utilisateur();
-        utilisateur.setId(Integer.MIN_VALUE);
         utilisateur.setLogin(request.getParameter("pseudo"));
         utilisateur.setEmail(request.getParameter("mail"));
         utilisateur.setPassword(DigestUtils.sha1Hex(request.getParameter("password")));

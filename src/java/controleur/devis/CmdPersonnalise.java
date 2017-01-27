@@ -6,12 +6,17 @@
 package controleur.devis;
 
 import controleur.ICommand;
+import entite.Formule;
+import entite.Frequence;
+import entite.Kms;
+import entite.Utilisateur;
+import entite.Utilisation;
 import entite.Vehicule;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import rest.REST_Frequence;
+import rest.REST_Kms;
 import rest.REST_Vehicule;
 
 /**
@@ -28,16 +33,34 @@ public class CmdPersonnalise implements ICommand{
         
         
         HttpSession httpSession = request.getSession();
+        httpSession.setAttribute("tokenDevis", httpSession.getAttribute("tokenSession"));
         Vehicule vehicule = (Vehicule) httpSession.getAttribute("vehicule");
         
-        Double coef = Double.parseDouble(request.getParameter("kms")) 
-                * Double.parseDouble(request.getParameter("frequence"))
-                * Double.parseDouble(request.getParameter("travail"));
+        Utilisateur u = (Utilisateur) httpSession.getAttribute("utilisateur");
+        System.out.println(u.getPrenom());
+        
+        REST_Frequence rf = new REST_Frequence();
+        Frequence frequence = rf.find_JSON(Frequence.class, request.getParameter("frequence"));
+        
+        REST_Kms rk = new REST_Kms();
+        Kms kms = rk.find_JSON(Kms.class, request.getParameter("kms"));
+        
+        Utilisation utilisation = new Utilisation();
+        utilisation.setFrequence(frequence);
+        utilisation.setKms(kms);
+        utilisation.setTravail(Boolean.parseBoolean(request.getParameter("travail")));
+        httpSession.setAttribute("utilisation", utilisation);
+        
+        String travail = request.getParameter("travail");
+        String freq = Long.toString(frequence.getId());
+        String k = Long.toString(kms.getId());
+        
+        Formule formule = (Formule) httpSession.getAttribute("formule");
+        String form = Long.toString(formule.getId());
         
         REST_Vehicule rv = new REST_Vehicule();
-        Double prime = rv.calculPrime(Double.class, Integer.toString(vehicule.getId()), Double.toString(coef));
-        NumberFormat formatter = new DecimalFormat("#0.00");
-        httpSession.setAttribute("prime", formatter.format(prime));
+        Double prime = rv.calculPrime(Double.class, Long.toString(vehicule.getId()), freq, k, travail, form);
+        httpSession.setAttribute("prime", prime);
         
         return "WEB-INF/devisperso.jsp";
     }

@@ -44,11 +44,11 @@
                                     <label class="col-md-4 control-label" for="kms">Km parcourus par an</label>
                                     <div class="col-md-4">
                                         <select id="kms" name="kms" class="form-control">
-                                            <option value="0.5">0 à 20 000 kms</option>
-                                            <option value="0.8">20 000 à 50 000 kms</option>
-                                            <option value="1">50 000 à 100 000 kms</option>
-                                            <option value="1.5">100 000 à 200 000 kms</option>
-                                            <option value="2">> à 200 000 kms</option>
+                                            <option value="1">0 à 20 000 kms</option>
+                                            <option value="2">20 000 à 50 000 kms</option>
+                                            <option value="3">50 000 à 100 000 kms</option>
+                                            <option value="4">100 000 à 200 000 kms</option>
+                                            <option value="5">plus de 200 000 kms</option>
                                         </select>
                                     </div>
                                 </div>
@@ -57,11 +57,11 @@
                                     <label class="col-lg-4 control-label" for="frequence">Fréquence d'utilisation</label>
                                     <div class="col-lg-4">
                                         <select id="frequence" name="frequence" class="form-control">
-                                            <option value="0.5">- de 1 fois par semaine</option>
-                                            <option value="0.8">seulement le week-end</option>
-                                            <option value="1">de 1 à 3 fois par semaine</option>
-                                            <option value="1.2">du lundi au vendredi</option>
-                                            <option value="1.5">tous les jours</option>
+                                            <option value="1">moins de 1 fois par semaine</option>
+                                            <option value="2">seulement le week-end</option>
+                                            <option value="3">de 1 à 3 fois par semaine</option>
+                                            <option value="4">du lundi au vendredi</option>
+                                            <option value="5">tous les jours</option>
                                         </select>
                                     </div>
                                 </div>
@@ -70,8 +70,8 @@
                                     <label class="col-lg-4 control-label" for="travail">Véhicule utilisé pour aller travailler</label>
                                     <div class="col-lg-4">
                                         <select id="travail" name="travail" class="form-control">
-                                            <option value="1.2">OUI</option>
-                                            <option value="1">NON</option>
+                                            <option value="true">OUI</option>
+                                            <option value="false">NON</option>
                                         </select>
                                     </div>
                                 </div>

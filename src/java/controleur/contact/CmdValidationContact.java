@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import entite.Contact;
+import entite.TypeDemande;
 import rest.REST_Contact;
 
 /**
@@ -26,12 +27,14 @@ public class CmdValidationContact implements ICommand{
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-                
+        
         Contact contact = new Contact();
-        contact.setTypeDemande(Integer.parseInt(request.getParameter("demande")));
+        TypeDemande typeDemande = new TypeDemande();
+        typeDemande.setId(Long.parseLong(request.getParameter("demande")));
+        contact.setTypeDemande(typeDemande);
         contact.setEmail(request.getParameter("email"));
         contact.setDemande(request.getParameter("commentaire"));
-        contact.setDateDemande(new Date());
+        contact.setDateDemande(new java.sql.Timestamp(new Date().getTime()));
         
         HttpSession session = request.getSession();
         
@@ -43,8 +46,11 @@ public class CmdValidationContact implements ICommand{
         }
         request.setAttribute("contact", contact);
         
+        if (session.getAttribute("tokenContact").equals(session.getAttribute("tokenSession"))){
         REST_Contact rc = new REST_Contact();
         rc.create_JSON(contact);
+        session.setAttribute("tokenContact", session.getAttribute("tokenContact") + "tokenmodifie");
+        }
                 
         return "WEB-INF/contact.jsp";
     }
