@@ -5,6 +5,7 @@
  */
 package controleur.devis;
 
+import bean.Connexion;
 import controleur.ICommand;
 import entite.Contrat;
 import entite.Formule;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import rest.REST_Contrat;
+import rest.REST_Utilisateur;
 
 /**
  *
@@ -30,6 +32,7 @@ public class CmdEnregistrer implements ICommand{
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         
         HttpSession httpSession = request.getSession();
+        Connexion connexion = (Connexion) httpSession.getAttribute("connexion");
         
         Contrat contrat = new Contrat();
         contrat.setActif(Boolean.FALSE);
@@ -39,8 +42,7 @@ public class CmdEnregistrer implements ICommand{
         contrat.setUtilisateur((Utilisateur) httpSession.getAttribute("utilisateur"));
         contrat.setUtilisation((Utilisation) httpSession.getAttribute("utilisation"));
         contrat.setVehicule((Vehicule) httpSession.getAttribute("vehicule"));
-        
-        if (httpSession.getAttribute("tokenDevis").equals(httpSession.getAttribute("tokenSession"))){
+        if (httpSession.getAttribute("tokenDevis").equals(httpSession.getId())){
         REST_Contrat rc = new REST_Contrat();
         rc.create_JSON(contrat);
         httpSession.setAttribute("tokenDevis", httpSession.getAttribute("tokenDevis") + "tokenmodifie");

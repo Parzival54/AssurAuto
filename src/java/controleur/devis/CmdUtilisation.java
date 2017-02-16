@@ -5,6 +5,7 @@
  */
 package controleur.devis;
 
+import bean.Connexion;
 import controleur.ICommand;
 import entite.Contrat;
 import entite.Formule;
@@ -18,33 +19,34 @@ import rest.REST_Formule;
  *
  * @author merguez
  */
-public class CmdUtilisation implements ICommand{
+public class CmdUtilisation implements ICommand {
 
     public CmdUtilisation() {
     }
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        
-        Utilisateur utilisateur = new Utilisateur();
-        utilisateur.setNom(request.getParameter("nom"));
-        utilisateur.setPrenom(request.getParameter("prenom"));
-        utilisateur.setEmail(request.getParameter("mail"));
-        
+
+        HttpSession httpSession = request.getSession(true);
+        Connexion connexion = (Connexion) httpSession.getAttribute("connexion");
+        if (connexion == null) {
+            Utilisateur utilisateur = new Utilisateur();
+            utilisateur.setNom(request.getParameter("nom"));
+            utilisateur.setPrenom(request.getParameter("prenom"));
+            utilisateur.setEmail(request.getParameter("mail"));
+            httpSession.setAttribute("utilisateur", utilisateur);
+        }
+
         REST_Formule rf = new REST_Formule();
         Formule formule = rf.find_JSON(Formule.class, request.getParameter("formule"));
-        
+
         Contrat contrat = new Contrat();
         contrat.setFormule(formule);
-        
-        HttpSession httpSession = request.getSession(true);
-        httpSession.setAttribute("utilisateur", utilisateur);
+
         httpSession.setAttribute("contrat", contrat);
         httpSession.setAttribute("formule", formule);
-        
+
         return "WEB-INF/devisutilisation.jsp";
     }
-    
-    
-    
+
 }

@@ -33,11 +33,10 @@ public class CmdPersonnalise implements ICommand{
         
         
         HttpSession httpSession = request.getSession();
-        httpSession.setAttribute("tokenDevis", httpSession.getAttribute("tokenSession"));
+        httpSession.setAttribute("tokenDevis", httpSession.getId());
         Vehicule vehicule = (Vehicule) httpSession.getAttribute("vehicule");
         
         Utilisateur u = (Utilisateur) httpSession.getAttribute("utilisateur");
-        System.out.println(u.getPrenom());
         
         REST_Frequence rf = new REST_Frequence();
         Frequence frequence = rf.find_JSON(Frequence.class, request.getParameter("frequence"));

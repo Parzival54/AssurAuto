@@ -43,21 +43,21 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="nom">Nom</label>
                                     <div class="col-md-4">
-                                        <input type="text" id="nom" name="nom" class="form-control">
+                                        <input type="text" id="nom" name="nom" class="form-control" value="${utilisateur.nom}">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="prenom">Prenom</label>
                                     <div class="col-md-4">
-                                        <input type="text" id="prenom" name="prenom" class="form-control">
+                                        <input type="text" id="prenom" name="prenom" class="form-control" value="${utilisateur.prenom}">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="mail">E-mail</label>
                                     <div class="col-md-4">
-                                        <input type="text" id="mail" name="mail" class="form-control">
+                                        <input type="text" id="mail" name="mail" class="form-control" value="${utilisateur.email}">
                                     </div>
                                 </div>
                                 
@@ -94,7 +94,7 @@
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/retina-1.1.0.js"></script>
         <script src="assets/js/jquery.hoverdir.js"></script>
